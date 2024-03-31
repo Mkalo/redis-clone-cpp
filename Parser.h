@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #include "Lexer.h"
 
 enum class RespType { SimpleString, Error, Integer, BulkString, Array };

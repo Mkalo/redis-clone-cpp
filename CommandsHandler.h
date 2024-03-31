@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <functional>
 #include <unordered_map>
+#include <memory>
 
 #include "MemoryStorage.h"
 #include "Parser.h"
