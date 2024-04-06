@@ -4,6 +4,10 @@ project(RedisClone)
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 20)
 
+# Add pthread library
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+
 include_directories(${CMAKE_SOURCE_DIR}/vendor/asio)
 
 # Add source files
@@ -18,3 +22,6 @@ set(SOURCES
 )
     
 add_executable(RedisClone ${SOURCES})
+
+# Link pthread library
+target_link_libraries(RedisClone PRIVATE Threads::Threads)
