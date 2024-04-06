@@ -8,7 +8,8 @@ set(CMAKE_CXX_STANDARD 20)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
-include_directories(${CMAKE_SOURCE_DIR}/vendor/asio)
+include_directories(${CMAKE_SOURCE_DIR}/vendor/asio-1.28.0)
+include_directories(${CMAKE_SOURCE_DIR}/vendor/doctest-2.4.11)
 
 # Add source files
 set(SOURCES
