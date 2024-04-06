@@ -12,13 +12,13 @@ include_directories(${CMAKE_SOURCE_DIR}/vendor/asio)
 
 # Add source files
 set(SOURCES
-    main.cpp
-    Lexer.cpp
-    MemoryStorage.cpp
-    Parser.cpp
-    RedisServer.cpp
-    Connection.cpp
-    CommandsHandler.cpp
+    src/main.cpp
+    src/Lexer.cpp
+    src/MemoryStorage.cpp
+    src/Parser.cpp
+    src/RedisServer.cpp
+    src/Connection.cpp
+    src/CommandsHandler.cpp
 )
     
 add_executable(RedisClone ${SOURCES})
