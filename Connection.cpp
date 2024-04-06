@@ -25,7 +25,7 @@ void Connection::async_write(const std::string& response) {
   asio::async_write(
       socket_, asio::buffer(response),
       [self](asio::error_code ec, std::size_t /*bytes_transferred*/) {
-        if (ec) {
+        if (!ec) {
           self->async_read();  // Continue reading from the socket
         }
       });
