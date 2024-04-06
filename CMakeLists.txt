@@ -4,23 +4,17 @@ project(RedisClone)
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 20)
 
-# Find Boost
-find_package(Boost 1.74 REQUIRED COMPONENTS system)
+include_directories(${CMAKE_SOURCE_DIR}/vendor/asio)
 
-if(Boost_FOUND)
-    include_directories(${Boost_INCLUDE_DIRS})
+# Add source files
+set(SOURCES
+    main.cpp
+    Lexer.cpp
+    MemoryStorage.cpp
+    Parser.cpp
+    RedisServer.cpp
+    Connection.cpp
+    CommandsHandler.cpp
+)
     
-    # Add source files
-    set(SOURCES
-        main.cpp
-        Lexer.cpp
-        MemoryStorage.cpp
-        Parser.cpp
-        RedisServer.cpp
-        Connection.cpp
-        CommandsHandler.cpp
-    )
-    
-    add_executable(RedisClone ${SOURCES})
-    target_link_libraries(RedisClone PRIVATE ${Boost_LIBRARIES})
-endif()
+add_executable(RedisClone ${SOURCES})

@@ -4,11 +4,11 @@
 #include <iostream>
 #include <memory>
 #include <mutex>
+#include <asio.hpp>
 
 #include "CommandsHandler.h"
 #include "Lexer.h"
 #include "Parser.h"
-#include "vendor/asio/asio.hpp"
 
 class Connection : public std::enable_shared_from_this<Connection> {
  public:

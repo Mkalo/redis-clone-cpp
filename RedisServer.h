@@ -2,12 +2,12 @@
 #include <iostream>
 #include <mutex>
 #include <vector>
+#include <asio.hpp>
 
 #include "CommandsHandler.h"
 #include "Connection.h"
 #include "Lexer.h"
 #include "Parser.h"
-#include "vendor/asio/asio.hpp"
 
 using tcp = asio::ip::tcp;
 
