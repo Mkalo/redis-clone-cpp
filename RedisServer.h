@@ -1,5 +1,4 @@
 #pragma once
-#include <boost/asio.hpp>
 #include <iostream>
 #include <mutex>
 #include <vector>
@@ -8,8 +7,8 @@
 #include "Connection.h"
 #include "Lexer.h"
 #include "Parser.h"
+#include "vendor/asio/asio.hpp"
 
-namespace asio = boost::asio;
 using tcp = asio::ip::tcp;
 
 class RedisServer {

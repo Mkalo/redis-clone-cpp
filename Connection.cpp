@@ -2,9 +2,8 @@
 
 void Connection::async_read() {
   socket_.async_read_some(
-      boost::asio::buffer(*buffer),
-      [self = shared_from_this()](boost::system::error_code ec,
-                                  std::size_t length) {
+      asio::buffer(*buffer),
+      [self = shared_from_this()](asio::error_code ec, std::size_t length) {
         if (!ec) {
           self->handle_read(length);
         }
@@ -23,10 +22,10 @@ void Connection::handle_read(std::size_t length) {
 
 void Connection::async_write(const std::string& response) {
   auto self = shared_from_this();
-  boost::asio::async_write(
-      socket_, boost::asio::buffer(response),
-      [self](boost::system::error_code ec, std::size_t /*bytes_transferred*/) {
-        if (!ec) {
+  asio::async_write(
+      socket_, asio::buffer(response),
+      [self](asio::error_code ec, std::size_t /*bytes_transferred*/) {
+        if (ec) {
           self->async_read();  // Continue reading from the socket
         }
       });

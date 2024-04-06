@@ -14,8 +14,7 @@ void RedisServer::start() {
     accept_connections();
 
     int buffer_size = 8192;
-    acceptor.set_option(
-        boost::asio::socket_base::receive_buffer_size(buffer_size));
+    acceptor.set_option(asio::socket_base::receive_buffer_size(buffer_size));
 
     io_context.run();
   } catch (std::exception& e) {
@@ -27,11 +26,9 @@ void RedisServer::accept_connections() {
   auto new_connection = std::make_shared<Connection>(io_context);
 
   acceptor.async_accept(
-      new_connection->socket(),
-      [this, new_connection](boost::system::error_code ec) {
+      new_connection->socket(), [this, new_connection](asio::error_code ec) {
         if (!ec) {
-          new_connection->socket().set_option(
-              boost::asio::ip::tcp::no_delay(true));
+          new_connection->socket().set_option(asio::ip::tcp::no_delay(true));
           new_connection->start();
         }
         accept_connections();  // Continue accepting new connections
