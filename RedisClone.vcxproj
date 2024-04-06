@@ -18,6 +18,23 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\CommandsHandler.h" />
+    <ClInclude Include="src\Connection.h" />
+    <ClInclude Include="src\Lexer.h" />
+    <ClInclude Include="src\MemoryStorage.h" />
+    <ClInclude Include="src\Parser.h" />
+    <ClInclude Include="src\RedisServer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\CommandsHandler.cpp" />
+    <ClCompile Include="src\Connection.cpp" />
+    <ClCompile Include="src\Lexer.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\MemoryStorage.cpp" />
+    <ClCompile Include="src\Parser.cpp" />
+    <ClCompile Include="src\RedisServer.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -137,23 +154,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="CommandsHandler.cpp" />
-    <ClCompile Include="Connection.cpp" />
-    <ClCompile Include="Lexer.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="MemoryStorage.cpp" />
-    <ClCompile Include="Parser.cpp" />
-    <ClCompile Include="RedisServer.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="CommandsHandler.h" />
-    <ClInclude Include="Connection.h" />
-    <ClInclude Include="Lexer.h" />
-    <ClInclude Include="MemoryStorage.h" />
-    <ClInclude Include="Parser.h" />
-    <ClInclude Include="RedisServer.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
