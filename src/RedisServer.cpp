@@ -1,15 +1,15 @@
 #include "RedisServer.h"
 
-RedisServer::RedisServer() : acceptor(io_context) {}
+RedisServer::RedisServer(int port) : port(port), acceptor(io_context) {}
 
 void RedisServer::start() {
   try {
     acceptor.open(tcp::v4());
     acceptor.set_option(tcp::acceptor::reuse_address(true));
-    acceptor.bind(tcp::endpoint(tcp::v4(), 6379));  // Default Redis port
+    acceptor.bind(tcp::endpoint(tcp::v4(), port));
     acceptor.listen();
 
-    std::cout << "Server listening on port 6379..." << std::endl;
+    std::cout << "Server listening on port " << port << std::endl;
 
     accept_connections();
 

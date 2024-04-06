@@ -13,12 +13,13 @@ using tcp = asio::ip::tcp;
 
 class RedisServer {
  public:
-  RedisServer();
+  RedisServer(int port);
   void start();
 
  private:
   void accept_connections();
 
+  int port;
   asio::io_context io_context{8};
   tcp::acceptor acceptor;
 };
